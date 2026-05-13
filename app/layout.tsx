@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "김한결 | 포트폴리오",
-  description: "Frontend Developer · UI/UX Enthusiast",
+  title: "김한결 | 퍼포먼스 마케터",
+  description: "Performance Marketer · Data-Driven Growth",
 };
 
 export default function RootLayout({
