@@ -1,34 +1,38 @@
 ---
 created: 2026-05-13T00:00:00+09:00
 project: mypage
-summary: npm 환경 설정 완료, dev 서버 정상 실행 확인
+summary: 퍼포먼스 마케터 프로필 전환 + DMATE 로고 헤더 추가
 ---
 
 ## Session Digest
-npm이 PowerShell PATH에 없어 `npm run dev` 실패 → Node.js 경로 영구 등록 + PowerShell 실행정책 RemoteSigned 설정으로 해결. dev 서버 http://localhost:3000 정상 실행. tsconfig.tsbuildinfo .gitignore 추가 커밋.
+퍼포먼스 마케터 프로필로 전면 재구성 완료 (tagline, 소개, 전문 분야, 캠페인 프로젝트). DMATE 로고 sticky 헤더(blur backdrop) 구현. TS 객체 키 공백 파싱 오류 수정 및 .gitignore 루트 한정 패턴 수정.
 
 ## Progress
-- ✅ 개인 소개 페이지 디자인 완성 (Next.js + TypeScript)
-- ✅ GitHub 배포 (hangyeol-kim94/mypage, master)
-- ✅ npm / Node.js 환경 설정 완료 (PATH + 실행정책)
-- ✅ dev 서버 동작 확인 (http://localhost:3000)
+- ✅ 퍼포먼스 마케터 프로필 전환
+- ✅ DMATE 로고 헤더 (sticky + blur)
 - ✅ Lint / TypeScript / Build 전체 통과
+- ✅ GitHub 푸시 완료 (26eff17)
 - ⏳ Vercel 배포 미완료
-- ⏳ 포트폴리오 콘텐츠 (Projects, About 섹션) 실제 내용으로 채우기
+- ⏳ 캠페인·프로젝트 실제 콘텐츠 작성
+- ⏳ GitHub/LinkedIn 링크 실제 URL 수정
 
 ## Next Steps
-1. Vercel 배포: vercel.com → GitHub 리포 연결 또는 `vercel` CLI 실행
-2. Projects 섹션에 실제 프로젝트 3-4개 추가
-3. GitHub/LinkedIn 링크 실제 URL로 수정 (app/page.tsx)
-4. favicon / og:image 등 SEO 메타데이터 보강
+1. Vercel 배포: vercel.com → hangyeol-kim94/mypage 연결
+2. 캠페인 섹션에 실제 성과 지표 작성 (ROAS, CPA, 전환율 등)
+3. SEO: og:image, meta description 보강
+4. 로고 LCP 성능 확인 (next/image priority 속성 적용됨)
 
 ## Blockers
 없음
 
 ## Watch Out
-- PowerShell 도구 내 배경 세션은 PATH가 초기화됨 → npm 명령 앞에 `$env:PATH += ";C:\Program Files\nodejs"` 필요
-- next-env.d.ts 변경은 대부분 CRLF 차이 → 실제 변경 아님, 무시 가능
-- tsconfig.tsbuildinfo는 이미 .gitignore에 추가됨
+- TS 객체 키에 공백 포함 시 반드시 따옴표 감쌀 것 (`"광고 플랫폼":`)
+- .gitignore에서 특정 디렉토리 파일 제외 시 `/filename` (루트) vs `filename` (전체) 구분 필수
+- PowerShell 도구 세션에서 npm 쓸 때: `$env:PATH += ";C:\Program Files\nodejs"` 선행
 
 ## Files Touched
-- .gitignore (tsconfig.tsbuildinfo 추가)
+- app/page.tsx
+- app/layout.tsx
+- app/globals.css
+- public/logo.png
+- .gitignore
