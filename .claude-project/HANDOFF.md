@@ -1,36 +1,34 @@
 ---
 created: 2026-05-13T00:00:00+09:00
 project: mypage
-summary: 개인 소개 페이지 초기 구성 완료 및 GitHub 배포
+summary: npm 환경 설정 완료, dev 서버 정상 실행 확인
 ---
 
 ## Session Digest
-개인 소개 페이지(mypage) 완성: 다크테마 기반 포트폴리오 사이트 (HTML + CSS), 검정 그라데이션 + 인디고 강조색, Hero/About/Skills/Projects/Contact/Footer 섹션 포함. GitHub 저장소 초기화 및 첫 커밋 완료 (public repo: hangyeol-kim94/mypage).
+npm이 PowerShell PATH에 없어 `npm run dev` 실패 → Node.js 경로 영구 등록 + PowerShell 실행정책 RemoteSigned 설정으로 해결. dev 서버 http://localhost:3000 정상 실행. tsconfig.tsbuildinfo .gitignore 추가 커밋.
 
 ## Progress
-- ✅ 페이지 디자인 완성 (Hero, Skills 3-col grid, Project cards)
-- ✅ git 초기화 + .gitignore 설정 (.claude/ 제외)
-- ✅ GitHub repo 생성 (hangyeol-kim94/mypage, public)
-- ✅ 초기 커밋 푸시 완료
-- ⏳ 실제 프로젝트 정보로 Projects 섹션 채우기 (현재 플레이스홀더)
-- ⏳ GitHub/LinkedIn 링크 업데이트 (현재 기본값)
+- ✅ 개인 소개 페이지 디자인 완성 (Next.js + TypeScript)
+- ✅ GitHub 배포 (hangyeol-kim94/mypage, master)
+- ✅ npm / Node.js 환경 설정 완료 (PATH + 실행정책)
+- ✅ dev 서버 동작 확인 (http://localhost:3000)
+- ✅ Lint / TypeScript / Build 전체 통과
+- ⏳ Vercel 배포 미완료
+- ⏳ 포트폴리오 콘텐츠 (Projects, About 섹션) 실제 내용으로 채우기
 
 ## Next Steps
-1. Projects 섹션에 실제 프로젝트 3-4개 추가 (각 설명 + 기술스택 태그)
-2. GitHub 프로필 링크 수정 (index.html: `href="https://github.com/"` → 실제 프로필)
-3. favicon 추가 (KH 로고나 간단한 아이콘)
-4. SEO 개선 (meta description, og:image 등)
-5. GitHub Pages 배포 설정
+1. Vercel 배포: vercel.com → GitHub 리포 연결 또는 `vercel` CLI 실행
+2. Projects 섹션에 실제 프로젝트 3-4개 추가
+3. GitHub/LinkedIn 링크 실제 URL로 수정 (app/page.tsx)
+4. favicon / og:image 등 SEO 메타데이터 보강
 
 ## Blockers
 없음
 
 ## Watch Out
-- **GitHub 링크 잘못됨**: index.html `href="https://github.com/"` → 실제 프로필 URL로 수정 필요
-- **LinkedIn 플레이스홀더**: `href="https://linkedin.com/"` 기본값 상태
-- **Projects 더미 데이터**: 프로젝트명 A/B는 실제 프로젝트로 교체 필요
+- PowerShell 도구 내 배경 세션은 PATH가 초기화됨 → npm 명령 앞에 `$env:PATH += ";C:\Program Files\nodejs"` 필요
+- next-env.d.ts 변경은 대부분 CRLF 차이 → 실제 변경 아님, 무시 가능
+- tsconfig.tsbuildinfo는 이미 .gitignore에 추가됨
 
 ## Files Touched
-- index.html
-- style.css
-- .gitignore
+- .gitignore (tsconfig.tsbuildinfo 추가)

@@ -1,3 +1,3 @@
 # Memory Index
 
-- [git-bash-required](git-bash-required.md) — Windows PowerShell에 git/gh가 PATH에 없어 Bash 도구로 실행해야 함
+- [environment-setup](environment-setup.md) — Windows에서 git/gh/npm 명령 실행 환경 설정 (PATH, 실행정책)
